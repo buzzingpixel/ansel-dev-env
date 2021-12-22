@@ -1,0 +1,109 @@
+version: '3.7'
+
+services:
+  web:
+    image: ansel-dev-env-web
+    container_name: ansel-dev-env-web
+    environment:
+      HOSTNAME: ansel-dev-env-web
+      CRAFT_ALLOW_SUPERUSER: 1
+    expose:
+      - 80
+    ports:
+      - "19274:80"
+    volumes: &volumes
+      - .:/opt/project:delegated
+      - ./vendor/expressionengine/expressionengine/system/ee:/opt/project/ExpressionEngine/system/ee:delegated
+      - ./vendor/expressionengine/expressionengine/images:/opt/project/ExpressionEngine/public/images:delegated
+      - ./vendor/expressionengine/expressionengine/themes/ee:/opt/project/ExpressionEngine/public/themes/ee:delegated
+    networks:
+      web:
+      default:
+        aliases:
+          - anseleephp74.localtest.me
+          - anseleephp80.localtest.me
+          - anseleephp81.localtest.me
+          - anselcraftphp74.localtest.me
+          - anselcraftphp80.localtest.me
+          - anselcraftphp81.localtest.me
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik-dev_default
+
+      - traefik.http.routers.anseleephp74.entrypoints=web
+      - traefik.http.routers.anseleephp74.rule=Host(`anseleephp74.localtest.me`)
+
+      - traefik.http.routers.anseleephp80.entrypoints=web
+      - traefik.http.routers.anseleephp80.rule=Host(`anseleephp80.localtest.me`)
+
+      - traefik.http.routers.anseleephp81.entrypoints=web
+      - traefik.http.routers.anseleephp81.rule=Host(`anseleephp81.localtest.me`)
+
+      - traefik.http.routers.anselcraftphp74.entrypoints=web
+      - traefik.http.routers.anselcraftphp74.rule=Host(`anselcraftphp74.localtest.me`)
+
+      - traefik.http.routers.anselcraftphp80.entrypoints=web
+      - traefik.http.routers.anselcraftphp80.rule=Host(`anselcraftphp80.localtest.me`)
+
+      - traefik.http.routers.anselcraftphp81.entrypoints=web
+      - traefik.http.routers.anselcraftphp81.rule=Host(`anselcraftphp81.localtest.me`)
+
+  php74:
+    image: ansel-dev-env-php74
+    container_name: ansel-dev-env-php74
+    environment:
+      HOSTNAME: ansel-dev-env-php74
+      CRAFT_ALLOW_SUPERUSER: 1
+    volumes: *volumes
+    networks:
+      default:
+        aliases:
+          - ansel-dev-env-php74
+
+  php80:
+    image: ansel-dev-env-php80
+    container_name: ansel-dev-env-php80
+    environment:
+      HOSTNAME: ansel-dev-env-php80
+      CRAFT_ALLOW_SUPERUSER: 1
+    volumes: *volumes
+    networks:
+      default:
+        aliases:
+          - ansel-dev-env-php80
+
+  php81:
+    image: ansel-dev-env-php81
+    container_name: ansel-dev-env-php81
+    environment:
+      HOSTNAME: ansel-dev-env-php81
+      CRAFT_ALLOW_SUPERUSER: 1
+    volumes: *volumes
+    networks:
+      default:
+        aliases:
+          - ansel-dev-env-php81
+
+  db:
+    image: ansel-dev-env-db
+    container_name: ansel-dev-env-db
+    environment:
+      HOSTNAME: ansel-dev-env-db
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "19275:3306"
+    networks:
+      default:
+        aliases:
+          - ansel-dev-env-db
+    volumes:
+      - .:/opt/project:delegated
+      - db-volume:/var/lib/mysql
+
+volumes:
+  db-volume:
+
+networks:
+  web:
+    name: traefik-dev_default

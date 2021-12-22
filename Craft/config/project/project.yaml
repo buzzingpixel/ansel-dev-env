@@ -1,0 +1,22 @@
+dateModified: 1640193396
+email:
+  fromEmail: tj@buzzingpixel.com
+  fromName: 'Ansel Craft Testing'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    832a4c5d-36b3-49eb-bcde-113b57c0614e: Common # Common
+    94221204-a3c0-422b-8895-001ba4ea5b2c: 'Ansel Craft Testing' # Ansel Craft Testing
+    d43f7743-c7cd-49e1-b82b-a9fe6512cffa: 'Ansel Craft Testing' # Ansel Craft Testing
+system:
+  edition: solo
+  live: true
+  name: 'Ansel Craft Testing'
+  schemaVersion: 3.7.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

@@ -1,0 +1,43 @@
+{
+    "name": "buzzingpixel/ansel-dev-env",
+    "version": "3.0.0",
+    "homepage": "https://www.buzzingpixel.com",
+    "authors": [
+        {
+            "name": "TJ Draper",
+            "email": "tj@buzzingpixel.com",
+            "homepage": "https://buzzingpixel.com"
+        }
+    ],
+    "config": {
+        "bin-compat": "full",
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+    "repositories": {
+        "expression-engine": {
+            "type": "package",
+            "package": {
+                "name": "expressionengine/expressionengine",
+                "version": "6.dev",
+                "source": {
+                    "url": "https://github.com/ExpressionEngine/ExpressionEngine.git",
+                    "type": "git",
+                    "reference": "6.dev"
+                }
+            }
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "craftcms/cms": "^3.7",
+        "expressionengine/expressionengine": "*",
+        "lucidtaz/yii2-whoops": "dev-master",
+        "symfony/var-dumper": "^5.3"
+    }
+}
