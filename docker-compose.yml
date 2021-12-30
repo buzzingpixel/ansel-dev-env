@@ -23,6 +23,7 @@ services:
       - ../ansel/config:/opt/project/ExpressionEngine/system/user/addons/ansel/config:delegated
       - ../ansel/src:/opt/project/ExpressionEngine/system/user/addons/ansel/src:delegated
       - ../ansel/vendor:/opt/project/ExpressionEngine/system/user/addons/ansel/vendor:delegated
+      - ../ansel:/opt/ansel:delegated
     networks:
       web:
       default:

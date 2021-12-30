@@ -31,13 +31,18 @@
                     "reference": "6.dev"
                 }
             }
+        },
+        "ansel-craft-plugin": {
+            "type": "path",
+            "url": "/opt/ansel"
         }
     },
     "require": {
         "php": "^7.4|^8.0",
+        "buzzingpixel/ansel": "^3.0",
         "craftcms/cms": "^3.7",
-        "expressionengine/expressionengine": "*",
+        "expressionengine/expressionengine": "6.dev",
         "lucidtaz/yii2-whoops": "dev-master",
-        "symfony/var-dumper": "^5.3"
+        "symfony/var-dumper": "^5.4"
     }
 }
