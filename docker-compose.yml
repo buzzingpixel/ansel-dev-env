@@ -16,6 +16,13 @@ services:
       - ./vendor/expressionengine/expressionengine/system/ee:/opt/project/ExpressionEngine/system/ee:delegated
       - ./vendor/expressionengine/expressionengine/images:/opt/project/ExpressionEngine/public/images:delegated
       - ./vendor/expressionengine/expressionengine/themes/ee:/opt/project/ExpressionEngine/public/themes/ee:delegated
+      - ../ansel/cms/ExpressionEngine:/opt/project/ExpressionEngine/system/user/addons/ansel:delegated
+      - ../ansel/assetsDist:/opt/project/ExpressionEngine/public/themes/user/ansel:delegated
+      - ../ansel/composer.json:/opt/project/ExpressionEngine/system/user/addons/ansel/composer.json:delegated
+      - ../ansel/composer.lock:/opt/project/ExpressionEngine/system/user/addons/ansel/composer.lock:delegated
+      - ../ansel/config:/opt/project/ExpressionEngine/system/user/addons/ansel/config:delegated
+      - ../ansel/src:/opt/project/ExpressionEngine/system/user/addons/ansel/src:delegated
+      - ../ansel/vendor:/opt/project/ExpressionEngine/system/user/addons/ansel/vendor:delegated
     networks:
       web:
       default:
