@@ -83,6 +83,18 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lucidtaz/yii2-whoops" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fig/http-message-util" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/slim" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/slim/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-server-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-server-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/craftcms/aws-s3" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-aws-s3-v3" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-crt-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-sdk-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/buzzingpixel/twig-switch" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

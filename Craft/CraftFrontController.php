@@ -29,6 +29,10 @@ if (class_exists(VarDumper::class)) {
     require APP_ROOT . '/dumper.php';
 }
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     dd($_POST);
+// }
+
 if (PHP_SAPI === 'cli') {
     // Register handler to catch errors that come up before Yii registers a handler
     $whoops = new Run();

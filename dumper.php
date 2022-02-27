@@ -47,9 +47,10 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
     $isTwigDumper = $checkForTwigDumperArray[count($checkForTwigDumperArray) - 1] === 'TwigDumper.php';
 
     if ($isTwigDumper) {
-        echo '<div></div>';
+        echo '<div></div><div style="line-height: 1.5rem">';
         echo '<div style="background-color: #fff; display: inline-block; margin: 10px; padding: 25px;">';
-        echo '<pre style="font-size: 14px; margin-bottom: -10px; margin-left: 6px; background-color: #fff;">';
+        // margin-bottom: -10px;
+        echo '<pre style="font-size: 14px; margin-left: 6px; background-color: #fff;">';
         if (is_object($var)) {
             echo get_class($var);
         } else {
@@ -58,7 +59,7 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
 
         echo '</pre>';
         $twigDumper->dump($cloner->cloneVar($var));
-        echo '</div><br>';
+        echo '</div></div><br>';
 
         return;
     }
@@ -66,14 +67,16 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
     $traceItem = debug_backtrace()[2];
 
     if (PHP_SAPI !== 'cli') {
-        echo '<pre style="margin-bottom: -16px; background-color: #fff">';
+        // margin-bottom: -16px;
+        echo '<div style="line-height: 1.5rem"><pre style="background-color: #fff">';
     }
 
     echo $traceItem['file'] . ':' . $traceItem['line'] . ': ';
 
     if (PHP_SAPI !== 'cli') {
         echo '</pre>';
-        echo '<pre style="font-size: 14px; margin-bottom: -16px; margin-left: 6px; background-color: #fff">';
+        // margin-bottom: -16px;
+        echo '<pre style="font-size: 14px; margin-left: 6px; background-color: #fff">';
     }
 
     if (is_object($var)) {
@@ -83,7 +86,7 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
     }
 
     if (PHP_SAPI !== 'cli') {
-        echo '</pre>';
+        echo '</pre></div>';
     }
 
     $dumper->dump($cloner->cloneVar($var));

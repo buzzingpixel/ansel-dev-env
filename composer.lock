@@ -4,20 +4,167 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ba48cfd60fb34db00554ba494f4e3ed",
+    "content-hash": "1b457d725a79c765db4467af0b358c8a",
     "packages": [
+        {
+            "name": "aws/aws-crt-php",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awslabs/aws-crt-php.git",
+                "reference": "3942776a8c99209908ee0b287746263725685732"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awslabs/aws-crt-php/zipball/3942776a8c99209908ee0b287746263725685732",
+                "reference": "3942776a8c99209908ee0b287746263725685732",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|^5.4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "AWS SDK Common Runtime Team",
+                    "email": "aws-sdk-common-runtime@amazon.com"
+                }
+            ],
+            "description": "AWS Common Runtime for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "amazon",
+                "aws",
+                "crt",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/awslabs/aws-crt-php/issues",
+                "source": "https://github.com/awslabs/aws-crt-php/tree/v1.0.2"
+            },
+            "time": "2021-09-03T22:57:30+00:00"
+        },
+        {
+            "name": "aws/aws-sdk-php",
+            "version": "3.209.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "4a0ded3a5f380f7654da5dc194161588a87d9d3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4a0ded3a5f380f7654da5dc194161588a87d9d3b",
+                "reference": "4a0ded3a5f380f7654da5dc194161588a87d9d3b",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-crt-php": "^1.0.2",
+                "ext-json": "*",
+                "ext-pcre": "*",
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^5.3.3|^6.2.1|^7.0",
+                "guzzlehttp/promises": "^1.4.0",
+                "guzzlehttp/psr7": "^1.7.0|^2.0",
+                "mtdowling/jmespath.php": "^2.6",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "andrewsville/php-token-reflection": "^1.4",
+                "aws/aws-php-sns-message-validator": "~1.0",
+                "behat/behat": "~3.0",
+                "doctrine/cache": "~1.4",
+                "ext-dom": "*",
+                "ext-openssl": "*",
+                "ext-pcntl": "*",
+                "ext-sockets": "*",
+                "nette/neon": "^2.3",
+                "paragonie/random_compat": ">= 2",
+                "phpunit/phpunit": "^4.8.35|^5.4.3",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "sebastian/comparator": "^1.2.3"
+            },
+            "suggest": {
+                "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
+                "doctrine/cache": "To use the DoctrineCacheAdapter",
+                "ext-curl": "To send requests using cURL",
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+                "ext-sockets": "To use client-side monitoring"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Aws\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "amazon",
+                "aws",
+                "cloud",
+                "dynamodb",
+                "ec2",
+                "glacier",
+                "s3",
+                "sdk"
+            ],
+            "support": {
+                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
+                "issues": "https://github.com/aws/aws-sdk-php/issues",
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.27"
+            },
+            "time": "2022-02-18T19:19:17+00:00"
+        },
         {
             "name": "buzzingpixel/ansel",
             "version": "3.0.0",
             "dist": {
                 "type": "path",
                 "url": "/opt/ansel",
-                "reference": "49d8ed861e8c8b6e606f1a8c1c6e86fbec2d1966"
+                "reference": "cef7ee735e5680db48945c18d87f52a064985336"
             },
             "require": {
                 "buzzingpixel/container": "^1.1",
+                "buzzingpixel/twig-switch": "^1.0",
+                "cebe/markdown": "^1.2",
                 "ext-json": "*",
-                "php": "^7.4|^8.0"
+                "guzzlehttp/guzzle": "^6.5.5|^7.2.0",
+                "php": "^7.4|^8.0",
+                "slim/psr7": "^1.5",
+                "slim/slim": "^4.9",
+                "twig/twig": "^2"
             },
             "require-dev": {
                 "codedungeon/phpunit-result-printer": "^0.31.0",
@@ -36,8 +183,8 @@
                 "changelogUrl": "https://github.com/buzzingpixel/ansel-craft/blob/master/changelog.md",
                 "class": "BuzzingPixel\\AnselCms\\Craft\\AnselCraftPlugin",
                 "developer": "BuzzingPixel, LLC",
-                "developerUrl": "https://buzzingpixel.com",
-                "documentationUrl": "https://buzzingpixel.com/software/ansel-craft/documentation",
+                "developerUrl": "https://www.buzzingpixel.com",
+                "documentationUrl": "https://www.buzzingpixel.com/software/ansel-craft/documentation",
                 "handle": "ansel",
                 "hasCpSettings": true,
                 "name": "Ansel",
@@ -49,7 +196,8 @@
                 "psr-4": {
                     "BuzzingPixel\\Ansel\\": "src/",
                     "BuzzingPixel\\AnselConfig\\": "config/",
-                    "BuzzingPixel\\AnselCms\\": "cms/"
+                    "BuzzingPixel\\AnselCms\\": "cms/",
+                    "BuzzingPixel\\AssetsDist\\": "assetsDist/"
                 }
             },
             "license": [
@@ -59,7 +207,7 @@
                 {
                     "name": "TJ Draper",
                     "email": "tj@buzzingpixel.com",
-                    "homepage": "https://buzzingpixel.com"
+                    "homepage": "https://www.buzzingpixel.com"
                 }
             ],
             "description": "A field type for defining image requirements and non-destructive editing of images per-field.",
@@ -119,6 +267,55 @@
                 "source": "https://github.com/buzzingpixel/container/tree/1.1.0"
             },
             "time": "2021-12-29T04:28:27+00:00"
+        },
+        {
+            "name": "buzzingpixel/twig-switch",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buzzingpixel/twig-switch.git",
+                "reference": "f8e45f0ca0b68c1614733e02d163b22668be914a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buzzingpixel/twig-switch/zipball/f8e45f0ca0b68c1614733e02d163b22668be914a",
+                "reference": "f8e45f0ca0b68c1614733e02d163b22668be914a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "twig/twig": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.6",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "library",
+            "extra": {
+                "twigExtensions": [
+                    "buzzingpixel\\twigswitch\\SwitchTwigExtension"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "buzzingpixel\\twigswitch\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "TJ Draper",
+                    "email": "tj@buzzingpixel.com",
+                    "homepage": "https://buzzingpixel.com"
+                }
+            ],
+            "description": "Provides a {% switch %} tag for Twig switch case statements",
+            "support": {
+                "issues": "https://github.com/buzzingpixel/twig-switch/issues",
+                "source": "https://github.com/buzzingpixel/twig-switch/tree/1.0.2"
+            },
+            "time": "2020-06-21T00:42:23+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -724,6 +921,66 @@
                 }
             ],
             "time": "2021-12-08T13:07:32+00:00"
+        },
+        {
+            "name": "craftcms/aws-s3",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/craftcms/aws-s3.git",
+                "reference": "d8515e3e8dc8867b635ea87b9ed578c06184e497"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/d8515e3e8dc8867b635ea87b9ed578c06184e497",
+                "reference": "d8515e3e8dc8867b635ea87b9ed578c06184e497",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.4.0",
+                "league/flysystem-aws-s3-v3": "^1.0.28"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.96"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Amazon S3",
+                "handle": "aws-s3",
+                "documentationUrl": "https://github.com/craftcms/aws-s3/blob/master/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\awss3\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Amazon S3 integration for Craft CMS",
+            "keywords": [
+                "Flysystem",
+                "aws",
+                "cms",
+                "craftcms",
+                "s3",
+                "yii2"
+            ],
+            "support": {
+                "docs": "https://github.com/craftcms/aws-s3/blob/master/README.md",
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/aws-s3/issues?state=open",
+                "rss": "https://github.com/craftcms/aws-s3/commits/master.atom",
+                "source": "https://github.com/craftcms/aws-s3"
+            },
+            "time": "2021-10-21T15:06:05+00:00"
         },
         {
             "name": "craftcms/cms",
@@ -1389,6 +1646,62 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.14.0"
             },
             "time": "2021-12-25T01:21:49+00:00"
+        },
+        {
+            "name": "fig/http-message-util",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message-util.git",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "suggest": {
+                "psr/http-message": "The package containing the PSR-7 interfaces"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fig\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-message-util/issues",
+                "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
+            },
+            "time": "2020-11-24T22:02:12+00:00"
         },
         {
             "name": "filp/whoops",
@@ -2147,6 +2460,57 @@
             "time": "2021-12-09T09:40:50+00:00"
         },
         {
+            "name": "league/flysystem-aws-s3-v3",
+            "version": "1.0.29",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
+                "reference": "4e25cc0582a36a786c31115e419c6e40498f6972"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/4e25cc0582a36a786c31115e419c6e40498f6972",
+                "reference": "4e25cc0582a36a786c31115e419c6e40498f6972",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.20.0",
+                "league/flysystem": "^1.0.40",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "^2.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\AwsS3v3\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Flysystem adapter for the AWS S3 SDK v3.x",
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem-aws-s3-v3/issues",
+                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/1.0.29"
+            },
+            "time": "2020-10-08T18:58:37+00:00"
+        },
+        {
             "name": "league/mime-type-detection",
             "version": "1.9.0",
             "source": {
@@ -2363,6 +2727,117 @@
                 "source": "https://github.com/mikehaertl/php-shellcommand/tree/1.6.4"
             },
             "time": "2021-03-17T06:54:33+00:00"
+        },
+        {
+            "name": "mtdowling/jmespath.php",
+            "version": "2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.php.git",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "composer/xdebug-handler": "^1.4 || ^2.0",
+                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
+            },
+            "bin": [
+                "bin/jp.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/JmesPath.php"
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Declaratively specify how to extract elements from a JSON document",
+            "keywords": [
+                "json",
+                "jsonpath"
+            ],
+            "support": {
+                "issues": "https://github.com/jmespath/jmespath.php/issues",
+                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
+            },
+            "time": "2021-06-14T00:11:39+00:00"
+        },
+        {
+            "name": "nikic/fast-route",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/FastRoute.git",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "FastRoute\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Fast request router for PHP",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/FastRoute/issues",
+                "source": "https://github.com/nikic/FastRoute/tree/master"
+            },
+            "time": "2018-02-13T20:26:39+00:00"
         },
         {
             "name": "opis/closure",
@@ -2914,6 +3389,120 @@
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
+            "name": "psr/http-server-handler",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-handler.git",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side request handler",
+            "keywords": [
+                "handler",
+                "http",
+                "http-interop",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response",
+                "server"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-handler/issues",
+                "source": "https://github.com/php-fig/http-server-handler/tree/master"
+            },
+            "time": "2018-10-30T16:46:14+00:00"
+        },
+        {
+            "name": "psr/http-server-middleware",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-middleware.git",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "http",
+                "http-interop",
+                "middleware",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-server-middleware/issues",
+                "source": "https://github.com/php-fig/http-server-middleware/tree/master"
+            },
+            "time": "2018-10-30T17:12:04+00:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.1.4",
             "source": {
@@ -3222,6 +3811,201 @@
                 "source": "https://github.com/Seldaek/phar-utils/tree/1.2.0"
             },
             "time": "2021-12-10T11:20:11+00:00"
+        },
+        {
+            "name": "slim/psr7",
+            "version": "1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slimphp/Slim-Psr7.git",
+                "reference": "a47b43a8da7c0208b4c228af0cb29ea36080635a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slimphp/Slim-Psr7/zipball/a47b43a8da7c0208b4c228af0cb29ea36080635a",
+                "reference": "a47b43a8da7c0208b4c228af0cb29ea36080635a",
+                "shasum": ""
+            },
+            "require": {
+                "fig/http-message-util": "^1.1.5",
+                "php": "^7.3 || ^8.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "ralouphie/getallheaders": "^3.0",
+                "symfony/polyfill-php80": "^1.23"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "adriansuter/php-autoload-override": "^1.2",
+                "ext-json": "*",
+                "http-interop/http-factory-tests": "^0.9.0",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpspec/prophecy": "^1.14",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpstan/phpstan": "^0.12.99",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Slim\\Psr7\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "hello@joshlockhart.com",
+                    "homepage": "http://joshlockhart.com"
+                },
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://silentworks.co.uk"
+                },
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                },
+                {
+                    "name": "Pierre Berube",
+                    "email": "pierre@lgse.com",
+                    "homepage": "http://www.lgse.com"
+                }
+            ],
+            "description": "Strict PSR-7 implementation",
+            "homepage": "https://www.slimframework.com",
+            "keywords": [
+                "http",
+                "psr-7",
+                "psr7"
+            ],
+            "support": {
+                "issues": "https://github.com/slimphp/Slim-Psr7/issues",
+                "source": "https://github.com/slimphp/Slim-Psr7/tree/1.5"
+            },
+            "time": "2021-09-22T04:33:00+00:00"
+        },
+        {
+            "name": "slim/slim",
+            "version": "4.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slimphp/Slim.git",
+                "reference": "44d3c9c0bfcc47e52e42b097b6062689d21b904b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/44d3c9c0bfcc47e52e42b097b6062689d21b904b",
+                "reference": "44d3c9c0bfcc47e52e42b097b6062689d21b904b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "nikic/fast-route": "^1.3",
+                "php": "^7.3 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "psr/log": "^1.1 || ^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "adriansuter/php-autoload-override": "^1.2",
+                "ext-simplexml": "*",
+                "guzzlehttp/psr7": "^2.0",
+                "laminas/laminas-diactoros": "^2.8",
+                "nyholm/psr7": "^1.4",
+                "nyholm/psr7-server": "^1.0",
+                "phpspec/prophecy": "^1.14",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpstan/phpstan": "^0.12.99",
+                "phpunit/phpunit": "^9.5",
+                "slim/http": "^1.2",
+                "slim/psr7": "^1.5",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "suggest": {
+                "ext-simplexml": "Needed to support XML format in BodyParsingMiddleware",
+                "ext-xml": "Needed to support XML format in BodyParsingMiddleware",
+                "php-di/php-di": "PHP-DI is the recommended container library to be used with Slim",
+                "slim/psr7": "Slim PSR-7 implementation. See https://www.slimframework.com/docs/v4/start/installation.html for more information."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Slim\\": "Slim"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "hello@joshlockhart.com",
+                    "homepage": "https://joshlockhart.com"
+                },
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://silentworks.co.uk"
+                },
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                },
+                {
+                    "name": "Pierre Berube",
+                    "email": "pierre@lgse.com",
+                    "homepage": "http://www.lgse.com"
+                },
+                {
+                    "name": "Gabriel Manricks",
+                    "email": "gmanricks@me.com",
+                    "homepage": "http://gabrielmanricks.com"
+                }
+            ],
+            "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
+            "homepage": "https://www.slimframework.com",
+            "keywords": [
+                "api",
+                "framework",
+                "micro",
+                "router"
+            ],
+            "support": {
+                "docs": "https://www.slimframework.com/docs/v4/",
+                "forum": "https://discourse.slimframework.com/",
+                "irc": "irc://irc.freenode.net:6667/slimphp",
+                "issues": "https://github.com/slimphp/Slim/issues",
+                "rss": "https://www.slimframework.com/blog/feed.rss",
+                "slack": "https://slimphp.slack.com/",
+                "source": "https://github.com/slimphp/Slim",
+                "wiki": "https://github.com/slimphp/Slim/wiki"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/slimphp",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/slim/slim",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-10-05T03:00:00+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -23,4 +23,7 @@ $config['database'] = array(
 $config['show_ee_news'] = 'y';
 $config['share_analytics'] = 'y';
 
+$config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+$config['base_path'] = dirname(__DIR__, 3) . '/';
+
 // EOF

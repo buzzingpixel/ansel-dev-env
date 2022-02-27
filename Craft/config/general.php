@@ -47,5 +47,6 @@ return [
 
     'aliases' => [
         '@webroot' => $craftBasePath . '/public',
+        '@baseurl' => $baseUrl,
     ],
 ];
