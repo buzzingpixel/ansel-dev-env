@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-// use Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider;
-// use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
-
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
+use Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider;
+use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 use Symfony\Component\VarDumper\Dumper\ServerDumper;
 use Symfony\Component\VarDumper\VarDumper;
@@ -17,40 +16,77 @@ $htmlDumper = new HtmlDumper();
 
 $htmlDumper->setTheme('light');
 
-$fallbackDumper = in_array(PHP_SAPI, ['cli', 'phpdbg'], true) ? new CliDumper() : $htmlDumper;
+$isCli = in_array(PHP_SAPI, ['cli', 'phpdbg'], true);
 
-// $dumper = new ServerDumper('tcp://127.0.0.1:9912', $fallbackDumper, [
-//     'cli' => new CliContextProvider(),
-//     'source' => new SourceContextProvider(),
-// ]);
+$fallbackDumper = $isCli ? new CliDumper() : $htmlDumper;
 
-$twigDumper = $dumper = new ServerDumper('tcp://127.0.0.1:9912', $fallbackDumper);
+$dumper = new ServerDumper(
+    'tcp://127.0.0.1:9912',
+    $fallbackDumper,
+    [
+        'cli' => new CliContextProvider(),
+        'source' => new SourceContextProvider(),
+    ]
+);
 
 $varStore            = new stdClass();
+
 $varStore->hasDumped = false;
 
-VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper, $varStore): void {
-    /** @phpstan-ignore-next-line */
+VarDumper::setHandler(static function ($var) use (
+    $cloner,
+    $dumper,
+    $varStore
+): void {
+    $traceStack = [];
+
+    $passedDump = false;
+
+    foreach (debug_backtrace() as $traceItem) {
+        $class = $traceItem['class'] ?? '';
+
+        if ($class === VarDumper::class) {
+            $passedDump = true;
+
+            continue;
+        }
+
+        if (! $passedDump) {
+            continue;
+        }
+
+        $traceStack[] = $traceItem;
+    }
+
+    /**
+     * @psalm-suppress RedundantCondition
+     * @phpstan-ignore-next-line
+     */
     if (PHP_SAPI !== 'cli' && $varStore->hasDumped === false) {
         echo '<head><title>Symfony Dumper</title></head><body>';
         $varStore->hasDumped = true;
     }
 
-    $checkForTwigDumperFile = debug_backtrace()[1]['file'] ?? '';
+    /** @psalm-suppress MixedAssignment */
+    $checkForTwigDumperFile = $traceStack[1]['file'] ?? '';
 
     if (! $checkForTwigDumperFile) {
-        $checkForTwigDumperFile = debug_backtrace()[2]['file'] ?? '';
+        /** @psalm-suppress MixedAssignment */
+        $checkForTwigDumperFile = $traceStack[2]['file'] ?? '';
     }
 
-    $checkForTwigDumperArray = explode(DIRECTORY_SEPARATOR, $checkForTwigDumperFile);
+    /** @psalm-suppress MixedArgument */
+    $checkForTwigDumperArray = explode(
+        DIRECTORY_SEPARATOR,
+        $checkForTwigDumperFile
+    );
 
     $isTwigDumper = $checkForTwigDumperArray[count($checkForTwigDumperArray) - 1] === 'TwigDumper.php';
 
     if ($isTwigDumper) {
-        echo '<div></div><div style="line-height: 1.5rem">';
+        echo '<div></div>';
         echo '<div style="background-color: #fff; display: inline-block; margin: 10px; padding: 25px;">';
-        // margin-bottom: -10px;
-        echo '<pre style="font-size: 14px; margin-left: 6px; background-color: #fff;">';
+        echo '<pre style="font-size: 14px; line-height: 40px; margin-bottom: -10px; margin-left: 6px; background-color: #fff;">';
         if (is_object($var)) {
             echo get_class($var);
         } else {
@@ -58,25 +94,24 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
         }
 
         echo '</pre>';
-        $twigDumper->dump($cloner->cloneVar($var));
-        echo '</div></div><br>';
+        $dumper->dump($cloner->cloneVar($var));
+        echo '</div><br>';
 
         return;
     }
 
-    $traceItem = debug_backtrace()[2];
+    $traceItem = $traceStack[0];
 
     if (PHP_SAPI !== 'cli') {
-        // margin-bottom: -16px;
-        echo '<div style="line-height: 1.5rem"><pre style="background-color: #fff">';
+        echo '<pre style="margin-bottom: -16px; background-color: #fff">';
     }
 
+    /** @psalm-suppress MixedOperand */
     echo $traceItem['file'] . ':' . $traceItem['line'] . ': ';
 
     if (PHP_SAPI !== 'cli') {
         echo '</pre>';
-        // margin-bottom: -16px;
-        echo '<pre style="font-size: 14px; margin-left: 6px; background-color: #fff">';
+        echo '<pre style="font-size: 14px; margin-bottom: -16px; margin-left: 6px; background-color: #fff">';
     }
 
     if (is_object($var)) {
@@ -86,7 +121,7 @@ VarDumper::setHandler(static function ($var) use ($cloner, $dumper, $twigDumper,
     }
 
     if (PHP_SAPI !== 'cli') {
-        echo '</pre></div>';
+        echo '</pre>';
     }
 
     $dumper->dump($cloner->cloneVar($var));

@@ -1,5 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$projDir = dirname(__DIR__, 4);
+
+require_once $projDir . '/vendor/autoload.php';
+
+require_once $projDir . '/dumper.php';
+
 $config['site_license_key'] = '';
 // ExpressionEngine Config Items
 // Find more configs and overrides at

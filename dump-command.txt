@@ -1,0 +1,1 @@
+./vendor/bin/var-dump-server --format=html > /opt/project/dump.html
