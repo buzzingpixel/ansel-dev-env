@@ -95,6 +95,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-crt-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-sdk-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/buzzingpixel/twig-switch" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/marc1706/fast-image-size" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

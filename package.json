@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "symfony-var-dumper-browser": "^1.0.1"
+  }
+}

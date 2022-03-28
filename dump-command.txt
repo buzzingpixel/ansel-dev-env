@@ -1,1 +1,5 @@
+# In PHP container
 ./vendor/bin/var-dump-server --format=html > /opt/project/dump.html
+
+Locally
+yarn dump-browser
