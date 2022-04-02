@@ -38,6 +38,10 @@ VarDumper::setHandler(static function ($var) use (
     $dumper,
     $varStore
 ): void {
+    $dumper->dump($cloner->cloneVar($var));
+
+    return;
+
     $traceStack = [];
 
     $passedDump = false;
